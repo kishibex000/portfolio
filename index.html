@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Portfolio v10</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <span class="main-name">牧野 真穂</span>
+            <span class="sub-info">マーケティング本部 マーケティング部 ブランド戦略グループ</span>
+        </div>
+    </header>
+
+    <!-- ▼ フィルタバー -->
+    <div class="filter-bar">
+        <button class="pill" data-filter-period="all">全部</button>
+
+        <span class="filter-label">依頼元</span>
+        <button class="pill" data-filter-client="MBMS">MBMS</button>
+        <button class="pill" data-filter-client="ASSE OSSO">ASSE OSSO</button>
+        <button class="pill" data-filter-client="B&W">B&W</button>
+
+        <span class="filter-label">媒体</span>
+        <button class="pill" data-filter-media="フライヤー">フライヤー</button>
+        <button class="pill" data-filter-media="SNS">SNS</button>
+        <button class="pill" data-filter-media="動画">動画</button>
+        <button class="pill" data-filter-media="WEBページ">WEBページ</button>
+        <button class="pill" data-filter-media="DM">DM</button>
+        <button class="pill" data-filter-media="メルマガ">メルマガ</button>
+    </div>
+
+    <!-- ▼ WORKS 一覧 -->
+    <div class="works-container">
+        <div class="works-grid" id="worksGrid">
+
+            <!-- 作品01 -->
+            <div class="work-item"
+                data-period="8期下期"
+                data-client="MBMS B&W"
+                data-media="フライヤー SNS"
+                data-date="2025/12">
+                <a href="works/work01.html">
+                    <div class="thumb-img">
+                        <img src="images/thumbnails/holidayselection2025_thumbnail.jpg" />
+                    </div>
+                    <p class="work-title">Holiday Selection 2025</p>
+                    <div class="tag-box">
+                        <span class="tag">8期下期</span>
+                        <span class="tag">MBMS</span>
+                        <span class="tag">B&W</span>
+                        <span class="tag">フライヤー</span>
+                        <span class="tag">SNS</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 作品02 -->
+            <div class="work-item"
+                data-period="8期下期"
+                data-client="B&W"
+                data-media="WEBページ"
+                data-date="2025/10">
+                <a href="works/work02.html">
+                    <div class="thumb-img">
+                        <img src="images/thumbnails/cellcure4t++-page_thumbnail.jpg" />
+                    </div>
+                    <p class="work-title">セルキュア4T++オンラインショップ商品ページ</p>
+                    <div class="tag-box">
+                        <span class="tag">8期下期</span>
+                        <span class="tag">B&W</span>
+                        <span class="tag">WEBページ</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 作品03 -->
+            <div class="work-item"
+                data-period="8期下期"
+                data-client="MBMS"
+                data-media="DM メルマガ"
+                data-date="2025/09">
+                <a href="works/work03.html">
+                    <div class="thumb-img">
+                        <img src="images/thumbnails/mineralrich-cartridge-dm_thumbnail.jpg" />
+                    </div>
+                    <p class="work-title">ミネラルリッチカートリッジオファーDM</p>
+                    <div class="tag-box">
+                        <span class="tag">8期下期</span>
+                        <span class="tag">MBMS</span>
+                        <span class="tag">DM</span>
+                        <span class="tag">メルマガ</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 作品04 -->
+            <div class="work-item"
+                data-period="8期下期"
+                data-client="マルスク"
+                data-media="バナー"
+                data-date="2025/11">
+                <a href="templates/evaluation_template.html">
+                    <div class="thumb-img">
+                        <img src="images/thumbnails/sample04.jpg" />
+                    </div>
+                    <p class="work-title">（ダミー）イベント告知バナー</p>
+                    <div class="tag-box">
+                        <span class="tag">8期下期</span>
+                        <span class="tag">マルスク</span>
+                        <span class="tag">バナー</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 作品05 -->
+            <div class="work-item"
+                data-period="9期上期"
+                data-client="MBMS"
+                data-media="Instagram動画"
+                data-date="2026/01">
+                <a href="templates/evaluation_template.html">
+                    <div class="thumb-img">
+                        <img src="images/thumbnails/sample05.jpg" />
+                    </div>
+                    <p class="work-title">（ダミー）Instagram ショート動画</p>
+                    <div class="tag-box">
+                        <span class="tag">9期上期</span>
+                        <span class="tag">MBMS</span>
+                        <span class="tag">Instagram動画</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 必要なら追加でコピペできる！ -->
+
+        </div>
+    </div>
+
+</body>
+</html>
