@@ -137,12 +137,17 @@ header {
 
 /* タイトル */
 .detail-page h1 {
-    font-size: 22px;
-    font-weight: 700;
+    margin: 12px auto 32px;
+    font-size: 23px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+
+    font-family:
+        "Yu Mincho",
+        "Noto Sans JP",
+        sans-serif;
+
     text-align: center;
-    margin-bottom: 40px;
-    padding-bottom: 14px;
-    border-bottom: 2px solid #e2eef5;
 }
 
 /* 見出し h2 */
@@ -157,32 +162,70 @@ header {
 }
 
 
-/* PDFリンク */
+/* 幅合わせ */
 
-.pdf-link a {
+.detail-block {
+    max-width: 700px;     /* ← 表に合わせたい幅 */
+    margin: 0 auto;       /* 中央寄せ */
+}
+
+
+
+
+/* Instagram投稿 */
+
+.ig-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 16px;
+    justify-content: center;
+}
+
+.ig-item {
+    width: 130px;
     text-decoration: none;
-    color: #4a92b8;
-    font-weight: 600;
+    color: #444;
+    font-size: 11px;
+    text-align: center;
 }
 
-.pdf-link a:hover {
-    opacity: 0.7;
+.ig-item img {
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid #ddd;
 }
+
+.ig-item:hover {
+    opacity: 0.6;
+}
+
 
 
 /* 属性テーブル */
+
 .meta-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
+
+    margin: 32px 0;
+    padding: 20px;
+
+    background: #f8fbff;
+    border-radius: 10px;
 }
+
 
 .meta-table tr {
     border-bottom: 1px solid #e6eef5;
 }
 
+.meta-table tr:last-child {
+    border-bottom: none; 
+}
+
 .meta-table td {
-    padding: 12px 3px;
+    padding: 15px 25px;
     font-size: 14px;
 }
 
@@ -200,53 +243,220 @@ header {
     margin-top: 10px;
 }
 
-/* === カルーセル === */
+/* =========================
+   カルーセル（完全復旧版）
+   ※ 以前の安定レイアウト再現
+========================= */
+
 .carousel {
-    max-width: 700px;
-    margin: 0 auto 40px auto;
+    width: 100%;
+    margin: 0 auto 40px;
+}
+
+/* ===== メイン表示 ===== */
+
+.carousel-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 2;          /* 1200 × 800 */
+    background: #f2f2f2;
+    overflow: hidden;
+    border-radius: 6px;
 }
 
 .carousel-main {
     width: 100%;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    margin-bottom: 12px;
-    opacity: 0;
-    transform: translateX(10px);
-    transition: all 0.45s ease;
+    height: 100%;
+    object-fit: contain;
+    display: block;
 }
 
-.carousel-main.active {
-    opacity: 1;
-    transform: translateX(0);
+
+/* =========================
+   動画カルーセル用（追加）
+========================= */
+
+/* メイン枠 */
+.carousel-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;   /* 1200×800 */
+  background: #f2f2f2;   /* 薄グレー */
+  overflow: hidden;
+  border-radius: 6px;
 }
+
+/* 縦動画を枠内に */
+.carousel-video{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:none;
+}
+
+/* ===== メイン動画の再生ボタン ===== */
+.video-play-btn {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+
+  display: none; /* 初期は非表示 */
+  align-items: center;
+  justify-content: center;
+
+  font-size: 28px;
+  color: #fff;
+
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  cursor: pointer;
+  z-index: 5;
+}
+
+/* ✅ 動画が表示中 & 再生していないときだけ ▶ を出す */
+.carousel-image:not(.video-playing) .carousel-video:not([style*="display: none"]) + .video-play-btn {
+  display: flex;
+}
+
+/* ✅ 再生中は非表示 */
+.carousel-image.video-playing .video-play-btn {
+  display: none;
+}
+
+/* ===== PDF / リンクボタン ===== */
+
+.carousel-pdf {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    z-index: 10;
+}
+
+.carousel-pdf a {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid #d6e8f5;
+    color: #4a92b8;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* ===== サムネイル（以前の見た目に完全一致） ===== */
 
 .carousel-thumbs {
     display: flex;
     gap: 12px;
     justify-content: center;
+    margin-top: 12px;
 }
 
-.carousel-thumbs img {
-    width: 80px;
+.carousel-thumbs .thumb {
+    width: 130px;
     height: 80px;
-    border-radius: 8px;
-    border: 2px solid transparent;
+    flex-shrink: 0;
+}
+
+.carousel-thumbs .thumb img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    cursor: pointer;
-    opacity: 0.5;
-    transition: 0.3s;
+    border-radius: 6px;
+    opacity: 0.6;
+    display: block;
 }
 
-.carousel-thumbs img.active {
+.carousel-thumbs .thumb.active img {
     opacity: 1;
-    border-color: #4a92b8;
-    transform: scale(1.05);
+    outline: 2px solid #4a92b8;
 }
 
 
-.pill.active {
-    background: #cfe8ff;
+/* === PDFを見るボタン === */
+.carousel-pdf {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    z-index: 10;
+}
+
+.carousel-pdf a {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid #d6e8f5;
+    color: #4a92b8;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    backdrop-filter: blur(2px);
+    transition: all 0.3s;
+}
+
+.carousel-pdf a:hover {
+    background: #eef6ff;
     border-color: #6faecd;
-    color: #2a6f9e;
 }
+
+
+
+/* === 一覧ページに戻る === */
+.back-to-works {
+    margin: 60px 0 20px;
+    text-align: center;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    text-decoration: none;
+    color: #4a92b8;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+
+    transition: color 0.3s;
+}
+
+/* テキスト部分 */
+.back-text {
+    line-height: 1;
+}
+
+/* ▶ の円 */
+.back-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #d6e8f5;
+    background: #f8fbff;
+
+    font-size: 12px;
+    transition: all 0.3s;
+}
+
+/* hover演出 */
+.back-link:hover {
+    color: #2f6f9f;
+}
+
+.back-link:hover .back-icon {
+    background: #e8f3ff;
+    border-color: #6faecd;
+    transform: translateX(3px);
+}
+``
