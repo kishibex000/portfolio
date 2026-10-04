@@ -17,9 +17,12 @@ document.addEventListener("DOMContentLoaded", () => {
     function applyFilters() {
       let filtered = items.filter((it) => {
 
-        const p =
-          active.period.size === 0 ||
-          active.period.has(it.dataset.period);
+const periodValues = (it.dataset.period || "").split(" ");
+ 
+const p =
+active.period.size === 0 ||
+[...active.period].some(v => periodValues.includes(v));
+
 
         const clientValues = (it.dataset.client || "").split(" ");
         const c =
@@ -38,8 +41,12 @@ document.addEventListener("DOMContentLoaded", () => {
         b.dataset.date.localeCompare(a.dataset.date)
       );
 
-      items.forEach(it => it.style.display = "none");
-      filtered.forEach(it => it.style.display = "block");
+items.forEach(it => it.style.display = "none");
+ 
+filtered.forEach(it => {
+it.style.display = "block";
+grid.appendChild(it);
+});
     }
 
     function toggleTag(set, value, btn) {

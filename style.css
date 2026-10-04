@@ -61,6 +61,18 @@ header {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
+
+.pill.active {
+background: linear-gradient(
+135deg,
+#6faecd,
+#4a92b8
+);
+border-color: #4a92b8;
+color: #fff;
+}
+
+
 .filter-label {
     margin: 0 10px;
     font-weight: bold;
